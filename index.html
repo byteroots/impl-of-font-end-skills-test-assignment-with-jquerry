@@ -97,7 +97,13 @@
     </div>
 </main>
 <footer>
-    Copyright &copy; 2020 Sathimantha Malalasekera
+    Copyright &copy; 2020 Sathimantha Malalasekerafunction showOrHideTFoot() {
+    if (tblCustomers.tBodies.item(0).rows.length > 0) {
+    $("#tbl-customers").find("tfoot")[0].classList.add('d-none');
+    } else {
+    $("#tbl-customers").find("tfoot")[0].classList.remove('d-none');
+    }
+    }
 </footer>
 
 </body>
