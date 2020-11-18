@@ -49,6 +49,15 @@ function init() {
     tblCustomers = $('#tbl-customers')[0];
 
     txtId.focus();
+    console.log(document.querySelector("#pagination .page-item.active"));
+    console.log("===============");
+    console.log($("#pagination .page-item.active"));
+    console.log("===============");
+    console.log("===============");
+    console.log( document.getElementById('helper-txt-id'));
+    console.log("===============")
+    console.log( $('#helper-txt-id')[0]);
+
 }
 
 /*===============================================================================
@@ -106,15 +115,7 @@ function handleSave(event) {
         return;
     }
 
-    /*
-     * What are Truthy in JavaScript?
-     * https://developer.mozilla.org/en-US/docs/Glossary/Truthy
-     *
-     * What are Falsy in JavaScript?
-     * https://developer.mozilla.org/en-US/docs/Glossary/Falsy
-     */
 
-    /* Let's check whether we want to save or update */
     if (!selectedCustomer) {
 
         /* There is no selected customer which means we need to save */
@@ -148,7 +149,7 @@ function handleSave(event) {
 
 function initPagination() {
 
-    var paginationElm = document.querySelector("#pagination");
+    var paginationElm = $("#pagination")[0];
 
     /* Let's calculate the page size */
     pageSize = -1;
@@ -174,7 +175,7 @@ function initPagination() {
             do {
                 var totalHeight = topPos + (rowHeight * i) + paginationHeight + margin;
                 i++;
-            } while (totalHeight < document.querySelector("footer").getBoundingClientRect().top);
+            } while (totalHeight < $("footer")[0].getBoundingClientRect().top);
 
             /* Since this do while loop, you gonna need to subtract two at the end */
             pageSize = i - 2;
@@ -216,7 +217,7 @@ function initPagination() {
     html += '<li class="page-item" id="btn-forward">' +
         '          <a class="page-link" href="#"><i class="fas fa-forward"></i></a>' +
         '    </li>';
-    document.querySelector(".pagination").innerHTML = html;
+    $(".pagination")[0].innerHTML = html;
     endPageIndex = -1;
 }
 
@@ -301,16 +302,16 @@ function toggleBackwardForwardDisability(page) {
 
     /* If the page is the first most page then there is no point of having backward button */
     if (page == 1) {
-        document.querySelector("#btn-backward").classList.add("disabled");
+        $("#btn-backward")[0].classList.add("disabled");
     } else {
-        document.querySelector("#btn-backward").classList.remove("disabled");
+        $("#btn-backward")[0].classList.remove("disabled");
     }
 
     /* If the page is the last most page then there is no point of having forward button */
     if (page == pageCount) {
-        document.querySelector("#btn-forward").classList.add("disabled");
+        $("#btn-forward")[0].classList.add("disabled");
     } else {
-        document.querySelector("#btn-forward").classList.remove("disabled");
+        $("#btn-forward")[0].classList.remove("disabled");
     }
 }
 
@@ -394,8 +395,8 @@ function validate() {
     regExp = /^C\d{3}$/;
     if (!regExp.test(txtId.value)) {
         txtId.classList.add('is-invalid');
-        document.getElementById('helper-txt-id').classList.remove('text-muted');
-        document.getElementById('helper-txt-id').classList.add('invalid-feedback');
+        $('#helper-txt-id')[0].classList.remove('text-muted');
+        $('#helper-txt-id')[0].classList.add('invalid-feedback');
         txtId.select();
         validated = false;
     }
@@ -406,8 +407,8 @@ function validate() {
     }) !== -1) {
         alert("Duplicate Customer IDs are not allowed");
         txtId.classList.add('is-invalid');
-        document.getElementById('helper-txt-id').classList.remove('text-muted');
-        document.getElementById('helper-txt-id').classList.add('invalid-feedback');
+        $('#helper-txt-id')[0].classList.remove('text-muted');
+        $('#helper-txt-id')[0].classList.add('invalid-feedback');
         txtId.select();
         validated = false;
     }
