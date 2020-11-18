@@ -43,10 +43,10 @@ var MAX_PAGES = 3;
 init();
 
 function init() {
-    txtId = document.getElementById('txt-id');
-    txtName = document.getElementById('txt-name');
-    txtAddress = document.getElementById('txt-address');
-    tblCustomers = document.getElementById('tbl-customers');
+    txtId=$("#txt-id")[0];
+    txtName = $('#txt-name')[0];
+    txtAddress = $('#txt-address')[0];
+    tblCustomers = $('#tbl-customers')[0];
 
     txtId.focus();
 }
@@ -55,11 +55,17 @@ function init() {
  * Event Handlers and Timers
  *===============================================================================*/
 
-document.getElementById('btn-save').addEventListener('click', handleSave);
-document.addEventListener('click', handleClickEventDelegation);
-txtId.addEventListener('input', handleInput)
-txtName.addEventListener('input', handleInput)
-txtAddress.addEventListener('input', handleInput)
+//document.getElementById('btn-save').addEventListener('click', handleSave);
+$("#btn-save").click(function (){
+    handleSave();
+});
+//document.addEventListener('click', handleClickEventDelegation);
+$(document).bind('click',function (){
+   handleClickEventDelegation();
+});
+$("#txt-id")[0].addEventListener('input', handleInput);
+$('#txt-name')[0].addEventListener('input', handleInput);
+$('#txt-address')[0].addEventListener('input', handleInput);
 
 /*===============================================================================
  * Functions
