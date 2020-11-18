@@ -58,11 +58,11 @@ function init() {
  *===============================================================================*/
 
 //document.getElementById('btn-save').addEventListener('click', handleSave);
-$("#btn-save").click(function (){
+$("#btn-save").click(function(){
     handleSave();
 });
 //document.addEventListener('click', handleClickEventDelegation);
-$(document).bind('click',function (){
+$(document).bind('click',function(){
    handleClickEventDelegation();
 });
 $("#txt-id")[0].addEventListener('input', handleInput);
@@ -351,9 +351,9 @@ function handleDelete(event) {
 
 function showOrHideTFoot() {
     if (tblCustomers.tBodies.item(0).rows.length > 0) {
-        document.querySelector("#tbl-customers tfoot").classList.add('d-none');
+        $("#tbl-customers").find("tfoot")[0].classList.add('d-none');
     } else {
-        document.querySelector("#tbl-customers tfoot").classList.remove('d-none');
+        $("#tbl-customers").find("tfoot")[0].classList.remove('d-none');
     }
 }
 
