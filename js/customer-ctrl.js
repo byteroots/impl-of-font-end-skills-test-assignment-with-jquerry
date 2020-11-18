@@ -49,14 +49,7 @@ function init() {
     tblCustomers = $('#tbl-customers')[0];
 
     txtId.focus();
-    console.log(document.querySelector("#pagination .page-item.active"));
-    console.log("===============");
-    console.log($("#pagination .page-item.active"));
-    console.log("===============");
-    console.log("===============");
-    console.log( document.getElementById('helper-txt-id'));
-    console.log("===============")
-    console.log( $('#helper-txt-id')[0]);
+
 
 }
 
